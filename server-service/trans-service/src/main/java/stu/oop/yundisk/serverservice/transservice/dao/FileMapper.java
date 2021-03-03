@@ -1,6 +1,7 @@
 package stu.oop.yundisk.serverservice.transservice.dao;
 
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Update;
 import stu.oop.yundisk.servercommon.entity.File;
@@ -13,4 +14,7 @@ public interface FileMapper {
 
     @Update("update user_file set upstatus=#{upStatus} where fileId=#{fileId}")
     int updateFileUpStatusByFileId(int fileId,int upStatus);
+
+    @Delete("delete from user_file where filepath=#{filePath}")
+    int deleteFileByFilePath(String filePath);
 }
